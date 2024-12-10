@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import React from "react";
 
 // Define font configurations
 const geistSans = localFont({
