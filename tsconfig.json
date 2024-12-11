@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "checkJs": false,
     "skipLibCheck": true,
@@ -14,7 +18,7 @@
     "noEmit": true,
     "isolatedModules": true,
     "incremental": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"

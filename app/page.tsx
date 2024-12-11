@@ -1,28 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-// Main Home Component
 export default function Home() {
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('https://imgcdn.stablediffusionweb.com/2024/11/7/dfcf3303-e7d6-4dec-83f9-3951950fa3f5.jpg')" }}
+      className="flex items-center justify-center min-h-screen bg-cover bg-center relative overflow-hidden"
+      style={{
+        backgroundImage:
+          "url('https://imgcdn.stablediffusionweb.com/2024/11/7/dfcf3303-e7d6-4dec-83f9-3951950fa3f5.jpg')",
+      }}
     >
+      {/* Fireworks */}
+      <div className="absolute inset-0">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Firework key={i} />
+        ))}
+      </div>
+
       <div className="relative bg-white bg-opacity-90 rounded-2xl shadow-lg p-6 sm:p-10 max-w-[95%] sm:max-w-4xl w-full">
         {/* Decorative Background */}
         <div className="absolute inset-0">
-          <div className="hidden sm:block absolute top-8 left-4">
+          <div className="hidden sm:block absolute top-8 left-4 animate-swing">
             <Lantern />
           </div>
-          <div className="absolute bottom-16 left-4">
+          <div className="absolute bottom-16 left-4 animate-bloom">
             <FlowerCluster />
           </div>
-          <div className="hidden sm:block absolute top-12 right-4">
+          <div className="hidden sm:block absolute top-12 right-4 animate-swing">
             <Lantern />
           </div>
-          <div className="absolute bottom-8 right-4">
+          <div className="absolute bottom-8 right-4 animate-bloom">
             <FlowerCluster />
           </div>
         </div>
@@ -35,7 +44,7 @@ export default function Home() {
           <h2 className="text-3xl sm:text-5xl font-extrabold text-gray-900 mb-4">
             Japanese Festivals
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 mb-6">
+          <p className="text-base sm:text-lg text-black mb-6">
             Start your Journey
           </p>
           <Link href="/HomePage">
@@ -65,3 +74,67 @@ const FlowerCluster = () => (
     <div className="w-4 h-4 sm:w-6 sm:h-6 bg-pink-400 rounded-full"></div>
   </div>
 );
+
+// Firework Component
+const Firework = () => {
+  const [randomValues, setRandomValues] = useState([]);
+  
+  useEffect(() => {
+    // Generate random values after the component mounts
+    const particles = Array.from({ length: 30 }).map(() => ({
+      size: Math.random() * 8 + 6,
+      delay: Math.random() * 3,
+      rotation: Math.random() * 360,
+      animationDuration: Math.random() * 2 + 1,
+    }));
+    setRandomValues(particles);
+  }, []);
+
+  if (randomValues.length === 0) {
+    return null; // Don't render until the random values are set
+  }
+
+  return (
+    <div className="absolute top-[30%] left-[50%] transform -translate-x-1/2">
+      {randomValues.map((particle, i) => (
+        <div
+          key={i}
+          className="absolute bg-yellow-300 rounded-full opacity-75"
+          style={{
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            top: "50%",
+            left: "50%",
+            animation: `firework ${particle.animationDuration}s forwards`,
+            animationDelay: `${particle.delay}s`,
+            animationTimingFunction: "ease-in-out",
+            transform: `rotate(${particle.rotation}deg)`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+// Add CSS for the firework animation
+const fireworkStyles = `
+@keyframes firework {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+`;
+
+export function HomeWithFireworks() {
+  return (
+    <>
+      <style>{fireworkStyles}</style>
+      <Home />
+    </>
+  );
+}
