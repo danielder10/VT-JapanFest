@@ -126,7 +126,7 @@ const Home: React.FC = () => {
                 href="/EtiquetteQuiz"
                 className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
               >
-                Take the Quiz
+                📝 Take the Quiz 📝 
               </a>
             </div>
           </div>
@@ -141,7 +141,7 @@ const Home: React.FC = () => {
               Traveling to Japan or just curious about Japanese customs? Mastering Japanese etiquette is key to making a great impression and enjoying the culture to its fullest!
             </p>
             <p className="mb-6 font-bold">
-              ✨ What You’ll Learn:
+            💡 What You’ll Learn:
             </p>
             <ul className="mb-6 list-disc pl-6">
               <li>The proper way to bow and greet someone in Japan.</li>
@@ -150,7 +150,7 @@ const Home: React.FC = () => {
               <li>Tips for navigating public transportation with politeness.</li>
             </ul>
             <p className="mb-6 font-bold">
-              🎌 Why Etiquette Matters:
+            ❓❓ Why Etiquette Matters:
             </p>
             <p className="mb-6">
               Japanese culture values respect and harmony, and understanding these practices shows appreciation for the traditions. Whether you're visiting shrines, enjoying tea ceremonies, or exploring vibrant cities, knowing what to do helps you fit right in!
@@ -164,7 +164,7 @@ const Home: React.FC = () => {
                 href="/EtiquettePage"
                 className="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
               >
-                Learn Etiquette
+                🧠 Learn Etiquette 🧠
               </a>
             </div>
           </div>
@@ -172,14 +172,14 @@ const Home: React.FC = () => {
       {/* Map Section */}
       <div className="md:col-span-1 bg-white shadow-lg rounded-lg p-8">
         <h2 className="text-3xl font-bold text-black mb-4 max-w-2xl mx-auto">
-          Explore the Cultural Map of Japan!
+          Explore the Cultural Map of Japan; View The Possibilities!
         </h2>
         <div className="text-gray-500 max-w-2xl mx-auto">
           <p className="mb-6">
             Ready to embark on a journey through Japan's rich culture and history? Dive into the traditions, landmarks, and vibrant lifestyles that make each region unique!
           </p>
           <p className="mb-6 font-bold">
-            ✨ Discover Highlights Across Japan:
+          🌎🇯🇵 Discover Highlights Across Japan:
           </p>
           <ul className="mb-6 list-disc pl-6">
             <li>Wander through the ancient temples of Kyoto.</li>
@@ -188,7 +188,7 @@ const Home: React.FC = () => {
             <li>Dive into the tropical beauty of Okinawa’s islands.</li>
             <li>Learn about traditional crafts in Kanazawa and Takayama.</li>
           </ul>
-          <p className="mb-6 font-bold">🎌 Uncover Hidden Gems:</p>
+          <p className="mb-6 font-bold">💎 Uncover Hidden Gems:</p>
           <p className="mb-6">
             From serene tea gardens to vibrant festivals, Japan’s cultural map is full of surprises waiting to be explored. Gain insights into regional cuisine, historic sites, and timeless customs as you plan your journey.
           </p>
@@ -199,7 +199,7 @@ const Home: React.FC = () => {
               href="/Map"
               className="bg-purple-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-600 transition duration-300"
             >
-              Explore the Map
+              🗺️ Explore the Map 🗺️
             </a>
           </div>
         </div>
