@@ -5,9 +5,18 @@ import { useRouter } from "next/navigation";
 import Map, { Marker, Popup } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
+// Define an interface for the location type
+interface Location {
+  name: string;
+  latitude: number;
+  longitude: number;
+  description: string;
+  image: string;
+}
+
 const MAPBOX_TOKEN = "pk.eyJ1IjoiZGRlcjEwIiwiYSI6ImNtNGlmcnlpZTAxc3AycXBwcGE2Mms5ZHkifQ.yxVvnT_J3qq_aQADrcUaRg";
 
-const locations = [
+const locations: Location[] = [
     { name: "Tokyo", latitude: 35.6895, longitude: 139.6917, description: "The bustling capital city.", image: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR3ZdS6obKdBRdwtFB8OCpnVYt6A4R3wiPJaJT_zEgpnmTF0TZuNjVTGF9mrepjCEr33RvP5qmVfsxu6EbDN56zI1R5i9GzSDz1wU5uVw" },
     { name: "Kyoto", latitude: 35.0116, longitude: 135.7681, description: "Classical temples and gardens.", image: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTnIdP-0NmpVWpH0BoVsuw__BLe2tVSeeBo_EWw1XgYuES4wicTEpMmgIErBvzT53WhwyVmc-nRlvhgf8RAOV-AdaY4gmxnCzzxJwvGxg" },
     { name: "Osaka", latitude: 34.6937, longitude: 135.5023, description: "Modern architecture and food culture.", image: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTrK3hriM76bGbFWXV84TAmwpUA9oi7Kdru9r10ZPdUuGzXSjyxab7fUHC--ACSX7aWbNujgkp6N-NAiKEuV3I4EHfqSQEUNe7OinNxhQ" },
@@ -31,7 +40,8 @@ const locations = [
 
   const MapPage = () => {
     const router = useRouter();
-    const [selectedLocation, setSelectedLocation] = React.useState(null);
+    // Explicitly type the state with Location or null
+    const [selectedLocation, setSelectedLocation] = React.useState<Location | null>(null);
   
     return (
       <div className="min-h-screen bg-white flex flex-col relative">
@@ -110,6 +120,7 @@ const locations = [
             </Map>
           </div>
         </div>
+
   
         {/* Footer */}
         <footer className="bg-white py-12 text-center relative">

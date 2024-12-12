@@ -3,6 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
+// Define an interface for the particle properties
+interface FireworkParticle {
+  size: number;
+  delay: number;
+  rotation: number;
+  animationDuration: number;
+}
+
 export default function Home() {
   return (
     <div
@@ -77,11 +85,12 @@ const FlowerCluster = () => (
 
 // Firework Component
 const Firework = () => {
-  const [randomValues, setRandomValues] = useState([]);
+  // Explicitly type the state as an array of FireworkParticle
+  const [randomValues, setRandomValues] = useState<FireworkParticle[]>([]);
   
   useEffect(() => {
     // Generate random values after the component mounts
-    const particles = Array.from({ length: 30 }).map(() => ({
+    const particles: FireworkParticle[] = Array.from({ length: 30 }).map(() => ({
       size: Math.random() * 8 + 6,
       delay: Math.random() * 3,
       rotation: Math.random() * 360,
@@ -129,4 +138,3 @@ const fireworkStyles = `
   }
 }
 `;
-
