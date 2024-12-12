@@ -266,6 +266,37 @@ const EtiquetteQuiz: React.FC = () => {
           </div>
         </div>
       ))}
+      {/* Footer */}
+      <footer className="py-12 text-center relative">
+          <div className="relative w-64 h-48 mx-auto">
+            {/* Torii Gate */}
+            <div className="absolute top-0 left-0 w-full h-6 bg-red-600 rounded-t-lg"></div>
+            <div className="absolute top-6 left-6 w-4 h-36 bg-red-700"></div>
+            <div className="absolute top-6 right-6 w-4 h-36 bg-red-700"></div>
+            <div className="absolute top-14 left-8 w-48 h-4 bg-red-500"></div>
+  
+            {/* Kitsune Fox */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+              <img
+                src="https://i.ibb.co/mSxc6Qb/fox.png"
+                alt="Kitsune Fox"
+                className="w-50 h-40"
+              />
+            </div>
+          </div>
+          <p className="text-gray-500 mt-6 text-sm">&copy; VT JapanFest 2024, All Rights Reserved.</p>
+
+          {/* FAQ Section */}
+          <div className="mt-6">
+            <p className="text-black">Have more questions? Visit our FAQ page</p>
+            <button
+              onClick={() => window.location.href = '/FAQPage'}
+              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              FAQ Page
+            </button>
+          </div>
+        </footer>
     </div>
   );
 };

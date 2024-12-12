@@ -26,7 +26,7 @@ const locations = [
     { name: "Takayama", latitude: 36.1466, longitude: 137.2500, description: "A well-preserved Edo-period town in the mountains.", image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTqw1cUzax1fgh47uADVio9A2_qjoHuyblnedh5XTIYN3fRoB23-t3r6pW3zHJS3ctjqA1WB21tNfJOFr6vZnsNrfh-yHM13RglN0yYK5k" },
     { name: "Hakone", latitude: 35.2321, longitude: 139.1051, description: "Known for hot springs and views of Mount Fuji.", image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQGRdCoXopTZOsi0Br6Pb9kqP08-t11Ue9mfbDzOtM_EaQYeA9cly-tRukZbPgqh0BMImnB_jAl6AQtRY_ytYcqvCkZX3BVI5GviVgaoQ" },
     { name: "Yokohama", latitude: 35.4437, longitude: 139.6380, description: "A modern port city with cosmopolitan charm.", image: "https://i.natgeofe.com/n/a40b46d3-edce-4e21-bb68-c73433803167/guide3_square.jpg" },
-    { name: "Ishigaki", latitude: 24.3448, longitude: 124.1572, description: "A tropical island paradise in Okinawa Prefecture.", image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRubTzdtvcCF-fAVaP_mitqa6g_ByPpkX9nnjtYBea2UHqqdw4pOwtLREqYmRHz8Io9KH6kw8CiBQ2K1lDxs4Vn6CFyDKDvH7iDBahK9fw" },
+    { name: "Ishigaki", latitude: 24.3448, longitude: 124.1572, description: "A tropical island paradise in Okinawa Prefecture.", image: "" },
   ];  
 
   const MapPage = () => {
@@ -46,7 +46,7 @@ const locations = [
         {/* Hero Section */}
         <div
           className="relative h-64 bg-cover bg-center z-10"
-          style={{ backgroundImage: 'url("https://i.ytimg.com/vi/Jt41FL3Z5w0/sddefault.jpg")' }}
+          style={{ backgroundImage: 'url("https://www.destinationcanada.com/sites/default/files/styles/internal_/public/2024-06/Japan-1920x1080_0.jpg?itok=gUMInjrE")' }}
         >
           <div className="absolute inset-0 flex flex-col justify-center items-center z-20">
             <h1 className="text-white text-4xl font-bold">Explore Japan</h1>
