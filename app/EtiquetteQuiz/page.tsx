@@ -2,10 +2,24 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ArrowLeft, Home, BookOpen, CheckCircle2, XCircle } from "lucide-react";
 
-const etiquetteData = [
+interface EtiquetteSection {
+    title: string;
+    icon?: string;  
+    quiz: {
+      question: string;
+      options: string[];
+      correctAnswer: string;
+      explanation: string;
+      id: string;
+    }[];
+  }
+
+const etiquetteData: EtiquetteSection[] = [
   {
     title: "The Proper Way to Bow and Greet Someone",
+    icon: "🙇‍♀️",
     quiz: [
       {
         question: "Is bowing common in casual greetings in Japan?",
@@ -18,6 +32,7 @@ const etiquetteData = [
   },
   {
     title: "Dining Do’s and Don’ts—Using Chopsticks Respectfully",
+    icon: "🥢",
     quiz: [
       {
         question: "Is it okay to stick chopsticks upright in rice?",
@@ -37,6 +52,7 @@ const etiquetteData = [
   },
   {
     title: "Wearing Shoes Inside a Japanese Home?",
+    icon: "👞👟👠",
     quiz: [
       {
         question: "Is it okay to wear shoes inside a Japanese home?",
@@ -49,6 +65,7 @@ const etiquetteData = [
   },
   {
     title: "Navigating Public Transportation with Politeness",
+    icon: "🚉🚅",
     quiz: [
       {
         question: "Is speaking on the phone allowed on public transportation?",
@@ -68,6 +85,7 @@ const etiquetteData = [
   },
   {
     title: "Kyoto Etiquette",
+    icon: "🦊",
     quiz: [
       {
         question: "Should you bow slightly before entering temples and shrines in Kyoto?",
@@ -87,6 +105,7 @@ const etiquetteData = [
   },
   {
     title: "Tokyo Etiquette",
+    icon: "🗼",
     quiz: [
       {
         question: "Is tipping common in Tokyo restaurants and hotels?",
@@ -106,6 +125,7 @@ const etiquetteData = [
   },
   {
     title: "Osaka Etiquette",
+    icon: "🏰",
     quiz: [
       {
         question: "Is it necessary to say 'itadakimasu' before starting a meal in Osaka?",
@@ -125,6 +145,7 @@ const etiquetteData = [
   },
   {
     title: "Nagoya Etiquette",
+    icon: "⛩️",
     quiz: [
       {
         question: "Should you dress modestly when visiting Nagoya Castle?",
@@ -144,6 +165,7 @@ const etiquetteData = [
   },
   {
     title: "Fukuoka Etiquette",
+    icon: "🛍️",
     quiz: [
       {
         question: "Should you dispose of your trash properly when enjoying yatai in Fukuoka?",
@@ -164,110 +186,172 @@ const etiquetteData = [
 ];
 
 const EtiquetteQuiz: React.FC = () => {
-  const router = useRouter();
-  const [selectedAnswers, setSelectedAnswers] = useState<{ [key: string]: string }>({});
-
-  const handleAnswerChange = (e: React.ChangeEvent<HTMLInputElement>, questionId: string) => {
-    const { value } = e.target;
-    setSelectedAnswers((prev) => ({
-      ...prev,
-      [questionId]: value,
-    }));
-  };
-
-  const checkAnswer = (questionId: string, correctAnswer: string) => {
-    return selectedAnswers[questionId] === correctAnswer;
-  };
-
-  return (
-    <div
-        className="min-h-screen bg-no-repeat bg-cover bg-center p-8"
-        style={{
-            backgroundImage: "url('https://miro.medium.com/v2/resize:fit:1024/1*mVbGqdv8S3lrhg5ioZ5nxQ.png')",
-        }}
-     >
-      <div className="flex justify-between mb-6">
-        <button
-            onClick={() => router.push("/HomePage")}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-        >
-            ← Back to Home
-        </button>
-        <button
-            onClick={() => router.push("/EtiquettePage")}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-        >
-            Not Confident, Go Back to Studying
-        </button>
-        </div>
-      <h1 className="text-5xl font-extrabold text-center text-pink-500 mb-6 drop-shadow-md">
-        Japanese Cultural Etiquette Quiz
-      </h1>
-      <p className="text-center text-gray-700 text-lg mb-12">
-        Let's test your knowledge of what you learned on the etiquette page.
-      </p>
-
-      {etiquetteData.map((etiquette, index) => (
-        <div
-          key={index}
-          className="mb-10 bg-white p-8 rounded-xl shadow-lg border-t-4 border-red-500 transition-transform hover:scale-105 max-w-3xl mx-auto"
-        >
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-            {etiquette.title}
-          </h2>
-
-          <div className="space-y-6">
-            {etiquette.quiz.map((quizItem) => (
-              <div key={quizItem.id} className="p-4 rounded-md bg-gray-50">
-                <p className="text-lg font-medium text-gray-700 mb-4">
-                  {quizItem.question}
-                </p>
-                {quizItem.options.map((option) => (
-                  <div
-                    key={option}
-                    className="flex items-center mb-3 space-x-3 hover:bg-gray-100 p-2 rounded-md transition"
-                  >
-                    <input
-                      type="radio"
-                      id={`${quizItem.id}-${option}`}
-                      name={quizItem.id}
-                      value={option}
-                      onChange={(e) => handleAnswerChange(e, quizItem.id)}
-                      className="w-5 h-5 accent-red-500 cursor-pointer"
-                    />
-                    <label
-                      htmlFor={`${quizItem.id}-${option}`}
-                      className="text-gray-700 font-medium cursor-pointer"
-                    >
-                      {option}
-                    </label>
-                  </div>
-                ))}
-                {selectedAnswers[quizItem.id] && (
-                  <p
-                    className={`mt-4 p-3 rounded-lg font-medium flex items-center space-x-2 ${
-                      checkAnswer(quizItem.id, quizItem.correctAnswer)
-                        ? "bg-green-100 text-green-800"
-                        : "bg-red-100 text-red-800"
-                    }`}
-                  >
-                    <span>
-                      {checkAnswer(quizItem.id, quizItem.correctAnswer) ? "✔️" : "❌"}
-                    </span>
-                    <span>
-                      {checkAnswer(quizItem.id, quizItem.correctAnswer)
-                        ? `Correct! ${quizItem.explanation}`
-                        : `Incorrect. ${quizItem.explanation}`}
-                    </span>
-                  </p>
-                )}
-              </div>
-            ))}
+    const router = useRouter();
+    const [selectedAnswers, setSelectedAnswers] = useState<{ [key: string]: string }>({});
+    const [showResults, setShowResults] = useState(false);
+  
+    const handleAnswerChange = (e: React.ChangeEvent<HTMLInputElement>, questionId: string) => {
+      const { value } = e.target;
+      setSelectedAnswers((prev) => ({
+        ...prev,
+        [questionId]: value,
+      }));
+    };
+  
+    const checkAnswer = (questionId: string, correctAnswer: string) => {
+      return selectedAnswers[questionId] === correctAnswer;
+    };
+  
+    const calculateScore = () => {
+      const totalQuestions = etiquetteData.reduce((total, section) => total + section.quiz.length, 0);
+      const correctAnswers = Object.keys(selectedAnswers).filter(
+        (questionId) => checkAnswer(questionId, etiquetteData.flatMap(section => section.quiz).find(q => q.id === questionId)?.correctAnswer || '')
+      ).length;
+      return Math.round((correctAnswers / totalQuestions) * 100);
+    };
+  
+    const renderScore = () => {
+      const score = calculateScore();
+      let message = "";
+      let color = "";
+  
+      if (score < 50) {
+        message = "Keep studying! You're still learning.";
+        color = "text-red-500";
+      } else if (score < 75) {
+        message = "Good start! There's room for improvement.";
+        color = "text-yellow-500";
+      } else {
+        message = "Excellent job! You're becoming a cultural expert!";
+        color = "text-green-600";
+      }
+  
+      return (
+        <div className="fixed z-50 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-md">
+            <h2 className="text-3xl font-bold mb-4">Quiz Results</h2>
+            <div className={`text-6xl font-extrabold mb-4 ${color}`}>{score}%</div>
+            <p className={`text-xl font-semibold ${color}`}>{message}</p>
+            <button 
+              onClick={() => setShowResults(false)} 
+              className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+            >
+              Close
+            </button>
           </div>
         </div>
-      ))}
-      {/* Footer */}
-      <footer className="py-12 text-center relative">
+      );
+    };
+  
+    return (
+      <div 
+        className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 py-12 px-4"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="flex justify-between mb-8 space-x-4">
+            <button
+              onClick={() => router.push("/HomePage")}
+              className="flex items-center space-x-2 px-4 py-2 bg-white text-red-500 rounded-lg shadow-md hover:bg-red-50 transition"
+            >
+              <ArrowLeft size={20} />
+              <span>Home</span>
+            </button>
+            <button
+              onClick={() => router.push("/EtiquettePage")}
+              className="flex items-center space-x-2 px-4 py-2 bg-white text-red-500 rounded-lg shadow-md hover:bg-red-50 transition"
+            >
+              <BookOpen size={20} />
+              <span>Study More</span>
+            </button>
+          </div>
+  
+          <h1 className="text-5xl font-extrabold text-center text-red-600 mb-6 drop-shadow-lg">
+            Japanese Cultural Etiquette Quiz
+          </h1>
+          <p className="text-center text-gray-700 text-lg mb-12 max-w-2xl mx-auto">
+            Test your knowledge of Japanese cultural etiquette and see how well you understand the subtle nuances of respect and tradition.
+          </p>
+  
+          {etiquetteData.map((etiquette, index) => (
+            <div
+              key={index}
+              className="mb-10 bg-white p-8 rounded-2xl shadow-xl border-l-4 border-red-500 hover:shadow-2xl transition-all"
+            >
+              <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                <span className="mr-4 text-3xl">{etiquette.icon}</span>
+                {etiquette.title}
+              </h2>
+  
+              <div className="space-y-6">
+                {etiquette.quiz.map((quizItem) => (
+                  <div 
+                    key={quizItem.id} 
+                    className="p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition"
+                  >
+                    <p className="text-lg font-medium text-gray-700 mb-4">
+                      {quizItem.question}
+                    </p>
+                    {quizItem.options.map((option) => (
+                      <div
+                        key={option}
+                        className="flex items-center mb-3 space-x-3 p-3 rounded-lg hover:bg-gray-200 transition"
+                      >
+                        <input
+                          type="radio"
+                          id={`${quizItem.id}-${option}`}
+                          name={quizItem.id}
+                          value={option}
+                          onChange={(e) => handleAnswerChange(e, quizItem.id)}
+                          className="w-5 h-5 accent-red-500 cursor-pointer"
+                        />
+                        <label
+                          htmlFor={`${quizItem.id}-${option}`}
+                          className="text-gray-700 font-medium cursor-pointer"
+                        >
+                          {option}
+                        </label>
+                      </div>
+                    ))}
+                    {selectedAnswers[quizItem.id] && (
+                      <div
+                        className={`mt-4 p-4 rounded-lg font-medium flex items-center space-x-3 ${
+                          checkAnswer(quizItem.id, quizItem.correctAnswer)
+                            ? "bg-green-100 text-green-800"
+                            : "bg-red-100 text-red-800"
+                        }`}
+                      >
+                        {checkAnswer(quizItem.id, quizItem.correctAnswer) ? (
+                          <CheckCircle2 size={24} className="text-green-600" />
+                        ) : (
+                          <XCircle size={24} className="text-red-600" />
+                        )}
+                        <span>
+                          {checkAnswer(quizItem.id, quizItem.correctAnswer)
+                            ? `Correct! ${quizItem.explanation}`
+                            : `Incorrect. ${quizItem.explanation}`}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+  
+          {Object.keys(selectedAnswers).length === etiquetteData.flatMap(section => section.quiz).length && !showResults && (
+            <div className="text-center mt-8">
+              <button
+                onClick={() => setShowResults(true)}
+                className="px-8 py-3 bg-red-500 text-white rounded-lg text-xl font-bold hover:bg-red-600 transition transform hover:scale-105"
+              >
+                See Your Results
+              </button>
+            </div>
+          )}
+  
+          {showResults && renderScore()}
+  
+          <footer className="py-12 text-center relative">
           <div className="relative w-64 h-48 mx-auto">
             {/* Torii Gate */}
             <div className="absolute top-0 left-0 w-full h-6 bg-red-600 rounded-t-lg"></div>
@@ -297,8 +381,9 @@ const EtiquetteQuiz: React.FC = () => {
             </button>
           </div>
         </footer>
-    </div>
-  );
-};
-
-export default EtiquetteQuiz;
+        </div>
+      </div>
+    );
+  };
+  
+  export default EtiquetteQuiz;
