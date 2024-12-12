@@ -114,7 +114,7 @@ const EtiquettePage: React.FC = () => {
 
         {/* Planner Button */}
         <Link
-            href="/Planner"
+            href="/"
             className="px-4 py-2 bg-pink-500 text-white font-bold rounded-lg shadow hover:bg-pink-600 transition-colors"
         >
             Planning to go? Plan Your Itinerary
