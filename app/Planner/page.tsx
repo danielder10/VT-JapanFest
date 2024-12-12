@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Noto_Sans_JP } from 'next/font/google';
+import Link from 'next/link';
 
 // Noto Sans JP Font
 const notoSansJP = Noto_Sans_JP({ 
@@ -80,6 +81,14 @@ export default function Planner() {
         backgroundBlendMode: 'overlay'
       }}
     >
+    {/* Back Button */}
+    <Link
+        href="/EtiquettePage"
+        className="absolute top-4 left-4 px-4 py-2 bg-pink-500 text-white font-bold rounded-lg shadow hover:bg-pink-600 transition-colors"
+      >
+        ← Back
+      </Link>
+
       {/* Sakura Petal Animation */}
       {sakuraPositions.map((petal, index) => (
         <div 
@@ -113,7 +122,7 @@ export default function Planner() {
             type="submit" 
             className="bg-red-400 text-white px-5 py-3 rounded-md hover:bg-red-500 transition duration-300 ease-in-out"
           >
-            追加
+            追加 (Submit)
           </button>
         </form>
 
@@ -173,7 +182,7 @@ export default function Planner() {
                 onClick={() => deleteTask(task.id)} 
                 className="bg-red-400 text-white px-3 py-2 rounded-md hover:bg-red-500 transition duration-300 ease-in-out ml-3"
               >
-                削除
+                削除 (Remove)
               </button>
             </div>
           ))}
@@ -188,6 +197,37 @@ export default function Planner() {
           </p>
         )}
       </div>
+      {/* Footer */}
+      <footer className="py-12 text-center relative">
+          <div className="relative w-64 h-48 mx-auto">
+            {/* Torii Gate */}
+            <div className="absolute top-0 left-0 w-full h-6 bg-red-600 rounded-t-lg"></div>
+            <div className="absolute top-6 left-6 w-4 h-36 bg-red-700"></div>
+            <div className="absolute top-6 right-6 w-4 h-36 bg-red-700"></div>
+            <div className="absolute top-14 left-8 w-48 h-4 bg-red-500"></div>
+  
+            {/* Kitsune Fox */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+              <img
+                src="https://i.ibb.co/mSxc6Qb/fox.png"
+                alt="Kitsune Fox"
+                className="w-50 h-40"
+              />
+            </div>
+          </div>
+          <p className="text-gray-200 mt-6 text-sm">&copy; VT JapanFest 2024, All Rights Reserved.</p>
+
+          {/* FAQ Section */}
+          <div className="mt-6">
+            <p className="text-white">Have more questions? Visit our FAQ page</p>
+            <button
+              onClick={() => window.location.href = '/FAQPage'}
+              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              FAQ Page
+            </button>
+          </div>
+        </footer>
     </div>
   );
 }
