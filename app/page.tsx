@@ -130,11 +130,3 @@ const fireworkStyles = `
 }
 `;
 
-export function HomeWithFireworks() {
-  return (
-    <>
-      <style>{fireworkStyles}</style>
-      <Home />
-    </>
-  );
-}
