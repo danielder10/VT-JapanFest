@@ -35,44 +35,35 @@ const locations: Location[] = [
     { name: "Takayama", latitude: 36.1466, longitude: 137.2500, description: "A well-preserved Edo-period town in the mountains.", image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTqw1cUzax1fgh47uADVio9A2_qjoHuyblnedh5XTIYN3fRoB23-t3r6pW3zHJS3ctjqA1WB21tNfJOFr6vZnsNrfh-yHM13RglN0yYK5k" },
     { name: "Hakone", latitude: 35.2321, longitude: 139.1051, description: "Known for hot springs and views of Mount Fuji.", image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQGRdCoXopTZOsi0Br6Pb9kqP08-t11Ue9mfbDzOtM_EaQYeA9cly-tRukZbPgqh0BMImnB_jAl6AQtRY_ytYcqvCkZX3BVI5GviVgaoQ" },
     { name: "Yokohama", latitude: 35.4437, longitude: 139.6380, description: "A modern port city with cosmopolitan charm.", image: "https://i.natgeofe.com/n/a40b46d3-edce-4e21-bb68-c73433803167/guide3_square.jpg" },
-    { name: "Ishigaki", latitude: 24.3448, longitude: 124.1572, description: "A tropical island paradise in Okinawa Prefecture.", image: "" },
+    { name: "Ishigaki", latitude: 24.3448, longitude: 124.1572, description: "A tropical island paradise in Okinawa Prefecture.", image: "https://lh5.googleusercontent.com/p/AF1QipOshFbR6P-91K5XtF71uge_xy8vVGgEfAbOBSRC=w1080-h624-n-k-no" },
+    { name: "Kamakura", latitude: 35.3192, longitude: 139.5503, description: "A coastal town with ancient temples, the Great Buddha, and samurai history.", image: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQJ4qP3MKNh9SGmMeQjKVMC5UOa5RcpMVt25SgqrnRVYfoccAoY-p_NkVchkd-i_6aOjAr-HQYXCNMQjApGzLHANW37losZz2_PczCFYQ" },
+    { name: "Nara", latitude: 34.6851, longitude: 135.8048, description: "Japan's first permanent capital, famous for friendly deer and historic temples.", image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQ0oSzYagsuJYGqr0C3ThMFhlIr4ntVAIvfZs5d8DKJHQmEXy1CIAP7cDILNuZzcz5KDRbElnmo2wad0XFONV416rc3F2LG263Pfjx7aA" },
+    { name: "Kumamoto", latitude: 32.8031, longitude: 130.7081, description: "Home to the majestic Kumamoto Castle and gateway to Aso volcanic region.", image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRvmeZLzHUWdwtBSfBOR0_oBXjllXgCYAem3wCcCdFNfjUhKNeDsHXuT1OWQAnSz8z9XuropEBshAeUQJgI5mISr05JBfKwssYLGHhhqw" },
+    { name: "Kawagoe", latitude: 35.9258, longitude: 139.4868, description: "A historic city nicknamed 'Little Edo' with well-preserved traditional architecture.", image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTaOq1S580tUXGT7-yA1dhS8DNZBOHn8Sigwov7OwsJIIWqLNLZl9FU-3WJFoaTPavxuixwbQp6sklXOnzFaldeuMv2sO7k0Fh4YOa5qQ" },
+    { name: "Beppu", latitude: 33.2620, longitude: 131.5089, description: "A famous hot spring resort town with numerous onsen and unique geothermal landscapes.", image: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQLmMzcnHNmkxZKaiDU3J2zmxSivE2aCx1-azu32P3YJU7AfGJpLPethSwV0VCNNraUxqk_wy79LPxsGj54ZswsYn7OQ4-hj-5FwNiTxw" },
+    { name: "Kurashiki", latitude: 34.6527, longitude: 133.7712, description: "A charming historic city with a beautifully preserved merchant district.", image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTxYLyVu5bXFPsTs-y16l1sazkBxbyId6yWFGd-jsiORx3XcxfhxEoKHm9uCETIHdiO2Ltnf3DSWlhrjfW218dfpGPxSMVAJwJHp3bQfg" },
+    { name: "Gifu", latitude: 35.4232, longitude: 136.7578, description: "A castle town known for traditional cormorant fishing and historic sites.", image: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQwyvDd-uwjb_-8ZjLzy-2TH5ry9fkF7Xb-eLinXwTYfF9LP5h9kBxdXVTeDXKCu1iFmpJ3LtqygcdAPmh05HmMlA12ngfG6zjvlmqBcw" },
+    { name: "Himeji", latitude: 34.8331, longitude: 134.6936, description: "Home to Japan's most spectacular feudal castle, a UNESCO World Heritage site.", image: "https://lh5.googleusercontent.com/p/AF1QipMX1JhoN_dBd1Y3qvezOM0DS6AAwp11IJK2WNgB=w1080-h624-n-k-no" },
+    { name: "Miyajima", latitude: 34.2964, longitude: 132.3194, description: "An island famous for the iconic floating torii gate of Itsukushima Shrine.", image: "https://lh5.googleusercontent.com/p/AF1QipO-hBXneZYbYGhkScafbg2pPnqVhwLZCjlk3BhS=w1080-h624-n-k-no" },
+    { name: "Otaru", latitude: 43.1907, longitude: 140.9752, description: "A charming port city in Hokkaido known for canal district and glassworks.", image: "https://res.cloudinary.com/jnto/image/upload/w_4608,h_3456,c_fill,f_auto,fl_lossy,q_60/v1/media/filer_public/38/56/3856aaf5-e628-4f1f-88ad-85cba8b6af47/psx_20180218_182123_ql6h5s" },
   ];  
 
   const MapPage = () => {
     const router = useRouter();
-    // Explicitly type the state with Location or null
-    const [selectedLocation, setSelectedLocation] = React.useState<Location | null>(null);
-  
+    const [selectedLocation, setSelectedLocation] = React.useState<Location | null>(locations[0]);
+
     return (
-      <div className="min-h-screen bg-white flex flex-col relative">
-        {/* Back Button */}
-        <button
-          onClick={() => router.back()}
-          className="absolute top-4 left-4 z-50 bg-gray-800 text-white px-4 py-2 rounded shadow hover:bg-gray-700 transition"
-        >
-          Back
-        </button>
-  
-        {/* Hero Section */}
-        <div
-          className="relative h-64 bg-cover bg-center z-10"
-          style={{ backgroundImage: 'url("https://www.destinationcanada.com/sites/default/files/styles/internal_/public/2024-06/Japan-1920x1080_0.jpg?itok=gUMInjrE")' }}
-        >
-          <div className="absolute inset-0 flex flex-col justify-center items-center z-20">
-            <h1 className="text-white text-4xl font-bold">Explore Japan</h1>
-          </div>
-        </div>
-  
-        {/* Map Section */}
-        <div className="flex justify-center items-center my-8">
-          <div style={{ width: "90%", maxWidth: "800px", height: "600px" }} className="relative">
+      <div className="min-h-screen bg-gray-50 flex">
+        {/* Left Side - Map */}
+        <div className="w-2/3 p-4 bg-white shadow-lg">
+          <div className="h-[calc(100vh-2rem)] rounded-xl overflow-hidden">
             <Map
               initialViewState={{
                 longitude: 138.2529,
                 latitude: 36.2048,
                 zoom: 5,
               }}
-              style={{ width: "100%", height: "100%", borderRadius: "12px" }}
+              style={{ width: "100%", height: "100%" }}
               mapStyle="mapbox://styles/mapbox/streets-v11"
               mapboxAccessToken={MAPBOX_TOKEN}
               onClick={() => setSelectedLocation(null)}
@@ -88,42 +79,60 @@ const locations: Location[] = [
                     setSelectedLocation(loc);
                   }}
                 >
-                  <div className="bg-red-500 w-4 h-4 rounded-full cursor-pointer"></div>
+                  <div className="bg-red-500 w-5 h-5 rounded-full cursor-pointer hover:scale-125 transition-transform"></div>
                 </Marker>
               ))}
-  
-              {selectedLocation && (
-                <Popup
-                  longitude={selectedLocation.longitude}
-                  latitude={selectedLocation.latitude}
-                  anchor="top"
-                  closeOnClick={false}
-                  onClose={() => setSelectedLocation(null)}
-                >
-                  <div className="p-2 text-gray-800 relative">
-                    <button
-                      onClick={() => setSelectedLocation(null)}
-                      className="absolute top-1 right-1 text-gray-500 hover:text-gray-800"
-                    >
-                      ✕
-                    </button>
-                    <img
-                      src={selectedLocation.image}
-                      alt={selectedLocation.name}
-                      className="w-full h-32 object-cover rounded"
-                    />
-                    <h3 className="text-lg font-bold mt-2">{selectedLocation.name}</h3>
-                    <p className="text-sm max-h-24 overflow-y-auto">{selectedLocation.description}</p>
-                  </div>
-                </Popup>
-              )}
             </Map>
           </div>
         </div>
 
-  
-        {/* Footer */}
-        <footer className="bg-white py-12 text-center relative">
+        {/* Right Side - Location Details */}
+        <div className="w-1/3 p-6 bg-gray-100 overflow-y-auto">
+          <div className="sticky top-0 z-10 bg-gray-100 pb-4">
+            <button
+              onClick={() => router.back()}
+              className="mb-4 bg-gray-800 text-white px-4 py-2 rounded shadow hover:bg-gray-700 transition"
+            >
+              Back
+            </button>
+            <h1 className="text-3xl font-bold text-gray-800 mb-4">Explore Japan</h1>
+          </div>
+
+          {selectedLocation ? (
+            <div className="bg-white rounded-xl shadow-md overflow-hidden">
+              <img
+                src={selectedLocation.image}
+                alt={selectedLocation.name}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedLocation.name}</h2>
+                <p className="text-gray-600">{selectedLocation.description}</p>
+              </div>
+              <div className="p-6 pt-0 flex flex-wrap gap-2">
+                {locations.map((loc) => (
+                  <button
+                    key={loc.name}
+                    onClick={() => setSelectedLocation(loc)}
+                    className={`px-3 py-1 rounded-full text-sm transition ${
+                      selectedLocation.name === loc.name
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    }`}
+                  >
+                    {loc.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="text-center text-gray-500">
+              <p>Select a location on the map</p>
+            </div>
+          )}
+
+          {/* Footer */}
+          <footer className="mt-8 text-center">
           <div className="relative w-64 h-48 mx-auto">
             {/* Torii Gate */}
             <div className="absolute top-0 left-0 w-full h-6 bg-red-600 rounded-t-lg"></div>
@@ -152,9 +161,10 @@ const locations: Location[] = [
               FAQ Page
             </button>
           </div>
-        </footer>
+          </footer>
+        </div>
       </div>
     );
-  };
+};
   
 export default MapPage;
